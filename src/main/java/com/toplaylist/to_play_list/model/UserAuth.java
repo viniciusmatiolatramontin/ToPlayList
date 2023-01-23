@@ -1,11 +1,13 @@
 package com.toplaylist.to_play_list.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class UserAuth implements Serializable {
@@ -17,6 +19,15 @@ public class UserAuth implements Serializable {
     private String username;
 
     private String password;
+
+    @OneToMany
+    private List<Game> games;
+    
+    @OneToMany
+    private List<Developer> developer;
+
+    @OneToMany
+    private List<Publisher> publisher;
 
     private String role = "ROLE_USER";
 
@@ -46,5 +57,9 @@ public class UserAuth implements Serializable {
 
     public String getRole() {
         return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

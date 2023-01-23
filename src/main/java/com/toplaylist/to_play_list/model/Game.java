@@ -26,6 +26,8 @@ public class Game implements Serializable {
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
+    private String username;
+
     private Status status;
 
     public Game() {
@@ -99,5 +101,11 @@ public class Game implements Serializable {
         this.status = status;
     }
 
-    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

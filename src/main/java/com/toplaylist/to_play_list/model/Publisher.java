@@ -1,6 +1,7 @@
 package com.toplaylist.to_play_list.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -21,12 +22,16 @@ public class Publisher implements Serializable {
     @OneToMany
     private List<Game> games;
 
+    private String username;
+
     public Publisher() {
 
     }
 
     public Publisher(String name) {
         this.setName(name);
+
+        games = new ArrayList<>();
     }
 
     public Long getId() {
@@ -51,5 +56,21 @@ public class Publisher implements Serializable {
         }
 
         this.name = name;
+    }
+
+    public List<Game> getGames() {
+        return games;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -50,4 +50,7 @@ public class CustomUserDetails implements UserDetails {
         return true;
     }
     
+    public UserAuth getUser() {
+        return user;
+    }
 }
