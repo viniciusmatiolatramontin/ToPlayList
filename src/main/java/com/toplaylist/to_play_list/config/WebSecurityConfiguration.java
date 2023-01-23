@@ -3,6 +3,7 @@ package com.toplaylist.to_play_list.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -34,9 +35,10 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 	    return http.csrf(csrf -> csrf.disable())
                    .authorizeHttpRequests(authorize -> authorize.requestMatchers("/user/register", "/user/register/**").permitAll())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers("/publisher/**").authenticated())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers("/game/**").authenticated())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers("/developer/**").authenticated())
+                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.GET).authenticated())
+                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.POST).authenticated())
+                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.PUT).authenticated())
+                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.DELETE).authenticated())
                    .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                    .httpBasic(Customizer.withDefaults())
 		           .build();
