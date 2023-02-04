@@ -33,15 +33,39 @@ public class DeveloperService {
 
         Developer dev = devRepository.findById(id).orElseThrow(() -> new DeveloperNotFoundException("Developer not found!"));
 
-        if(dev.getUsername().equals(user.getUsername())){
-            return dev;
-        } else {
+        if(!dev.getUsername().equals(user.getUsername())){
             throw new AccessDeniedException("You don't have access to this developer");
         }
+
+        return dev;
     }
 
     public Developer saveDeveloper(CustomUserDetails user, Developer dev){
         dev.setUsername(user.getUsername());
         return devRepository.save(dev);
+    }
+
+    public Developer updateDeveloper(CustomUserDetails user, Developer devUpdated, Long id) throws AccessDeniedException {
+        Developer dev = devRepository.findById(id).orElseThrow(() -> new DeveloperNotFoundException("Developer not found!"));
+
+        if(!dev.getUsername().equals(user.getUsername())){
+            throw new AccessDeniedException("You don't have access to this developer");
+        }
+
+        dev.setName(devUpdated.getName());
+
+        return devRepository.save(dev);
+    }
+
+    public Developer deleteDeveloper(CustomUserDetails user, Long id) throws AccessDeniedException {
+        Developer dev = devRepository.findById(id).orElseThrow(() -> new DeveloperNotFoundException("Developer not found!"));
+
+        if(!dev.getUsername().equals(user.getUsername())){
+            throw new AccessDeniedException("You don't have access to this developer");
+        }
+
+        devRepository.delete(dev);
+
+        return dev;
     }
 }

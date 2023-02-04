@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,7 +21,8 @@ public class Publisher implements Serializable {
 
     private String name;
     
-    @OneToMany
+    @OneToMany(mappedBy = "publisher")
+    @JsonIgnore
     private List<Game> games;
 
     private String username;
@@ -66,8 +69,8 @@ public class Publisher implements Serializable {
         return username;
     }
 
-    public void setGames(List<Game> games) {
-        this.games = games;
+    public void addGame(Game game) {
+        games.add(game);
     }
 
     public void setUsername(String username) {

@@ -34,10 +34,8 @@ public class Game implements Serializable {
 
     }
 
-    public Game(String name, Developer dev, Publisher publisher, Status status) {
+    public Game(String name, Status status) {
         this.setName(name);
-        this.setDev(dev);
-        this.setPublisher(publisher);
         this.setStatus(status);
     }
     
