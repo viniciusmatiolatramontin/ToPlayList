@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,8 +21,8 @@ public class Developer implements Serializable{
 
     private String name;
 
-    @OneToMany
-    @Fetch(FetchMode.JOIN)
+    @OneToMany(mappedBy = "dev")
+    @JsonIgnore
     private List<Game> games;
 
     private String username;
@@ -69,8 +68,8 @@ public class Developer implements Serializable{
         return username;
     }
 
-    public void setGames(List<Game> games) {
-        this.games = games;
+    public void addGames(Game game) {
+        games.add(game);
     }
 
     public void setUsername(String username) {
