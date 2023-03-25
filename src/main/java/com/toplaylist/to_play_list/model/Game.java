@@ -44,10 +44,6 @@ public class Game implements Serializable {
     }
 
     public void setId(Long id) {
-        if(id.equals(null) || id < 0){
-            throw new IllegalArgumentException("Id field cannot be null and cannot be less than 0");
-        }
-
         this.id = id;
     }
 
@@ -56,10 +52,6 @@ public class Game implements Serializable {
     }
 
     public void setName(String name) {
-        if(name.equals(null)){
-            throw new IllegalArgumentException("Name field cannot be null");
-        }
-
         this.name = name;
     }
 
@@ -68,10 +60,6 @@ public class Game implements Serializable {
     }
 
     public void setDev(Developer dev) {
-        if(dev.equals(null)){
-            throw new IllegalArgumentException("Developer field cannot be null");
-        }
-
         this.dev = dev;
     }
 
@@ -80,10 +68,6 @@ public class Game implements Serializable {
     }
 
     public void setPublisher(Publisher publisher) {
-        if(publisher.equals(null)){
-            throw new IllegalArgumentException("Publisher field cannot be null");
-        }
-
         this.publisher = publisher;
     }
 
@@ -92,10 +76,6 @@ public class Game implements Serializable {
     }
 
     public void setStatus(Status status) {
-        if(status.equals(null)){
-            throw new IllegalArgumentException("Status field cannot be null");
-        }
-
         this.status = status;
     }
 

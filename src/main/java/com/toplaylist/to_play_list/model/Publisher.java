@@ -42,10 +42,6 @@ public class Publisher implements Serializable {
     }
 
     public void setId(Long id) {
-        if(id.equals(null) || id < 0){
-            throw new IllegalArgumentException("Id field cannot be null and cannot be less than 0");
-        }
-
         this.id = id;
     }
 
@@ -54,10 +50,6 @@ public class Publisher implements Serializable {
     }
 
     public void setName(String name) {
-        if(name.equals(null)){
-            throw new IllegalArgumentException("Name field cannot be null");
-        }
-
         this.name = name;
     }
 
