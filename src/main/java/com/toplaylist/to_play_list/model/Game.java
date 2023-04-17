@@ -8,6 +8,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Game implements Serializable {
@@ -16,18 +18,23 @@ public class Game implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty(message = "Name is empty")
     private String name;
 
     @ManyToOne
     @JoinColumn(name = "developer_id")
+    @NotNull(message = "developer_id is null")
     private Developer dev;
 
     @ManyToOne
     @JoinColumn(name = "publisher_id")
+    @NotNull(message = "publisher_id is null")
     private Publisher publisher;
 
+    @NotEmpty(message = "Username is empty")
     private String username;
 
+    @NotNull(message = "Status is null")
     private Status status;
 
     public Game() {

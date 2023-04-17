@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 public class Developer implements Serializable{
@@ -18,13 +19,15 @@ public class Developer implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-
+    
+    @NotEmpty(message = "Name is empty")
     private String name;
 
     @OneToMany(mappedBy = "dev")
     @JsonIgnore
     private List<Game> games;
 
+    @NotEmpty(message = "Username is empty")
     private String username;
     
     public Developer() {

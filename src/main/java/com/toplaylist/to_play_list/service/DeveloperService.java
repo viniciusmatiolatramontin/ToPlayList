@@ -1,6 +1,5 @@
 package com.toplaylist.to_play_list.service;
 
-import java.nio.file.AccessDeniedException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.toplaylist.to_play_list.model.Developer;
 import com.toplaylist.to_play_list.repository.DeveloperRepository;
+import com.toplaylist.to_play_list.exceptions.AccessDeniedException;
 import com.toplaylist.to_play_list.exceptions.DeveloperNotFoundException;
 import com.toplaylist.to_play_list.model.CustomUserDetails;
 
