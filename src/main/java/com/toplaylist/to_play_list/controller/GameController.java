@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +18,6 @@ import com.toplaylist.to_play_list.model.CustomUserDetails;
 import com.toplaylist.to_play_list.model.Game;
 import com.toplaylist.to_play_list.service.GameService;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/game")
 public class GameController {
@@ -28,14 +26,12 @@ public class GameController {
     private GameService service;
 
     @GetMapping
-    @CrossOrigin(origins = "*")
     public List<Game> getGames(@AuthenticationPrincipal CustomUserDetails user) {
         return service.getGames(user);
     }
 
 
     @GetMapping("/{id}")
-    @CrossOrigin(origins = "*")
     public Game getGameById(@AuthenticationPrincipal CustomUserDetails user, @PathVariable Long id)
             throws AccessDeniedException {
         return service.getGameById(user, id);
@@ -43,14 +39,12 @@ public class GameController {
 
 
     @PostMapping("/dev/{devId}/publisher/{publisherId}")
-    @CrossOrigin(origins = "*")
     public Game saveGame(@AuthenticationPrincipal CustomUserDetails user, @RequestBody Game game,
             @PathVariable Long devId, @PathVariable Long publisherId) throws AccessDeniedException {
         return service.saveGame(user, game, devId, publisherId);
     }
 
     @PutMapping("/{id}/dev/{devId}/publisher/{publisherId}")
-    @CrossOrigin(origins = "*")
     public Game updateGame(@AuthenticationPrincipal CustomUserDetails user, @RequestBody Game updatedGame,
             @PathVariable Long id,
             @PathVariable Long devId, @PathVariable Long publisherId) throws AccessDeniedException {
@@ -59,7 +53,6 @@ public class GameController {
     }
 
     @DeleteMapping("/{id}")
-    @CrossOrigin(origins = "*")
     public Game deleteGame(@AuthenticationPrincipal CustomUserDetails user, @PathVariable Long id)
             throws AccessDeniedException {
         return service.deleteGame(user, id);
