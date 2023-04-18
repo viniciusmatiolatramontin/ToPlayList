@@ -12,7 +12,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Developer implements Serializable{
@@ -22,7 +21,6 @@ public class Developer implements Serializable{
     private Long id;
     
     @NotEmpty(message = "Name is empty")
-    @NotNull(message = "Name is null")
     private String name;
 
     @OneToMany(mappedBy = "dev")
@@ -30,7 +28,6 @@ public class Developer implements Serializable{
     private List<Game> games;
 
     @NotEmpty(message = "Username is empty")
-    @NotNull(message = "Username is null")
     private String username;
     
     public Developer() {
