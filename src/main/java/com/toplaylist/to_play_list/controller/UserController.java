@@ -1,7 +1,6 @@
 package com.toplaylist.to_play_list.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.toplaylist.to_play_list.model.UserAuth;
 import com.toplaylist.to_play_list.service.UserService;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -21,7 +19,6 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/register")
-    @CrossOrigin(origins = "*")
     public UserAuth addUser(@RequestBody UserAuth user) {
         return service.addUser(user);
     }
