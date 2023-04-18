@@ -21,7 +21,6 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/register")
-    @CrossOrigin(origins = "*")
     public UserAuth addUser(@RequestBody UserAuth user) {
         return service.addUser(user);
     }

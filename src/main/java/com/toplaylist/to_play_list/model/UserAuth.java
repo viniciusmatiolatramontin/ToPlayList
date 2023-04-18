@@ -7,7 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class UserAuth implements Serializable {
@@ -17,11 +16,8 @@ public class UserAuth implements Serializable {
     private Long id;
     
     @NotEmpty(message = "Username is empty")
-    @NotNull(message = "Username is null")
     private String username;
 
-    @NotEmpty(message = "Password is empty")
-    @NotNull(message = "Password is null")
     private String password;
 
     private String role = "ROLE_USER";
@@ -47,6 +43,10 @@ public class UserAuth implements Serializable {
     }
 
     public void setPassword(String password) {
+        if(password.isEmpty() || password == null){
+            throw new IllegalArgumentException("Password is empty or null");
+        }
+        
         this.password = password;
     }
 
