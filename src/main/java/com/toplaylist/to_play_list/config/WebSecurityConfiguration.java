@@ -33,15 +33,16 @@ public class WebSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-	    return http.cors().and()
-                   .csrf(csrf -> csrf.disable())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers("/user/register", "/user/register/**").permitAll())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.GET).authenticated())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.POST).authenticated())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.PUT).authenticated())
-                   .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.DELETE).authenticated())
-                   .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                   .httpBasic(Customizer.withDefaults())
-		           .build();
+        return http.csrf(csrf -> csrf.disable())
+                .cors().and()
+                .authorizeHttpRequests(
+                        authorize -> authorize.requestMatchers("/user/register", "/user/register/**").permitAll())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.GET).authenticated())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.POST).authenticated())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.PUT).authenticated())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.DELETE).authenticated())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .httpBasic(Customizer.withDefaults())
+                .build();
     }
 }

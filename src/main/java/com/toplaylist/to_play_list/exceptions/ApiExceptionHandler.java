@@ -37,9 +37,15 @@ public class ApiExceptionHandler {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<Error> handle(ConstraintViolationException exception) {
-        String errorMessage = new ArrayList<>(exception.getConstraintViolations()).get(0).getMessage();
+    public ResponseEntity<Error> handle(ConstraintViolationException e) {
+        String errorMessage = new ArrayList<>(e.getConstraintViolations()).get(0).getMessage();
         Error Error = new Error(errorMessage, HttpStatus.BAD_REQUEST);    
+        return new ResponseEntity<Error>(Error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Error> handle(IllegalArgumentException e) {
+        Error Error = new Error(e.getMessage(), HttpStatus.BAD_REQUEST);    
         return new ResponseEntity<Error>(Error, HttpStatus.BAD_REQUEST);
     }
 }

@@ -19,6 +19,7 @@ public class Game implements Serializable {
     private Long id;
 
     @NotEmpty(message = "Name is empty")
+    @NotNull(message = "Name is null")
     private String name;
 
     @ManyToOne
@@ -32,6 +33,7 @@ public class Game implements Serializable {
     private Publisher publisher;
 
     @NotEmpty(message = "Username is empty")
+    @NotNull(message = "Username is null")
     private String username;
 
     @NotNull(message = "Status is null")
