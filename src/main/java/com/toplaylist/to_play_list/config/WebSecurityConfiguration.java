@@ -40,6 +40,7 @@ public class WebSecurityConfiguration {
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.POST).authenticated())
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.PUT).authenticated())
                 .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.DELETE).authenticated())
+                .authorizeHttpRequests(authorize -> authorize.requestMatchers(HttpMethod.OPTIONS).permitAll())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())
                 .build();
