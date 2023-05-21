@@ -1,5 +1,6 @@
 package com.toplaylist.to_play_list.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class PublisherService {
     private PublisherRepository publisherRepository;
 
     public List<Publisher> getPublishers(CustomUserDetails user){
-        List<Publisher> publishers = publisherRepository.findAll();
+        ArrayList<Publisher> publishers = new ArrayList<>(publisherRepository.findAll());
 
         for(int i = 0; i < publishers.size(); i++){
             if(!publishers.get(i).getUsername().equals(user.getUsername())){

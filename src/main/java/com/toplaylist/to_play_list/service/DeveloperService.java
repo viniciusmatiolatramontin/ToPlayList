@@ -1,5 +1,6 @@
 package com.toplaylist.to_play_list.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class DeveloperService {
     private DeveloperRepository devRepository;
 
     public List<Developer> getDevelopers(CustomUserDetails user){
-        List<Developer> devs = devRepository.findAll();
+        ArrayList<Developer> devs = new ArrayList<>(devRepository.findAll());
 
         for(int i = 0; i < devs.size(); i++){
             if(!devs.get(i).getUsername().equals(user.getUsername())){
