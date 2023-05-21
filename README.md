@@ -25,7 +25,7 @@
 2 - If the response code returned was 200 this means that you are now registered on the api and can use the other http methods with the username and password provided on the previous request
 
 
-3 - Access one of the endpoints below and have fun organizing your game library >w<
+3 - Access one of the endpoints below and have fun organizing your game library :smiley_cat:
 
 
 
