@@ -1,6 +1,7 @@
 package com.toplaylist.to_play_list.service;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class GameService {
     private DeveloperService devService;
 
     public List<Game> getGames(CustomUserDetails user){
-        List<Game> games = gameRepository.findAll();
+        ArrayList<Game> games = new ArrayList<>(gameRepository.findAll());
 
         for(int i = 0; i < games.size(); i++){
             if(!games.get(i).getUsername().equals(user.getUsername())){
