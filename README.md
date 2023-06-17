@@ -81,7 +81,7 @@ DELETE: https://to-play-list.onrender.com/game/{id}
 
 -> Remember that you only need to provide the name of the publisher and the name of the developer in their respective endpoints and also that you need to provide the name of the game and it's status in the POST and PUT requests for game.
 
--> Also, the endpoint might not be working because render (the hosting service i'm using) only let's the application run for 15 minutes before shutting down, if the application is down and you wan't to test it contact me via e-mail so i can start it back up.
+-> Also, the endpoints might not be working because render (the hosting service i'm using) only let's the application run for 15 minutes before shutting down, if the application is down and you wan't to test it contact me via e-mail so i can start it back up.
 
 # Supported status types for game
 
