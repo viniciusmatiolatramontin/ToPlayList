@@ -81,9 +81,34 @@ DELETE: https://to-play-list.onrender.com/game/{id}
 
 -> Remember that you only need to provide the name of the publisher and the name of the developer in their respective endpoints and also that you need to provide the name of the game and it's status in the POST and PUT requests for game.
 
--> Also, the endpoints might not be working because render (the hosting service i'm using) only let's the application run for 15 minutes before shutting down, if the application is down and you wan't to see how it works here are some videos of how it runs :smiley_cat:
+-> Also, the endpoints might not be working because render (the hosting service i'm using) only let's the application run for 15 minutes before shutting down, if the application is down and you wan't to see how it works here are some gifs of how it runs :smiley_cat:
 
+# Authentication
 
+![AUTH](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/a4096b4c-b82a-465d-86cb-b3636abf0046)
+
+# POST methods
+
+![POST 1](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/08249f56-0891-4a96-bd38-4cf55c346691)
+![POST 2](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/2a92631c-e9b8-4502-aff1-bc7d960d1a8d)
+
+# GET methods
+
+![GET 1](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/e0318bc7-4257-48f0-9727-010f83106aa8)
+![GET 2](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/9c7f9834-44e3-4309-8bd1-b3543e36a77b)
+
+# PUT methods and example of exception treatment
+
+![PUT 1](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/c44b4b2b-479f-4fa6-9e54-967f0264ecfe)
+![PUT 2](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/5620cae8-a263-4f4c-a2b9-89184fdc6c93)
+
+# DELETE methods and more exception treatment examples
+
+![DELETE 1](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/11b78ad8-75c8-4ba1-ae15-e8b7dfd27dcd)
+
+# Testing the division of games, developers and publishers by each user
+
+![AUTH 2nd user](https://github.com/viniciusmatiolatramontin/ToPlayList/assets/77888037/baf7821e-d37c-4c76-a6a5-0d7a1ad42587)
 
 # Supported status types for game
 
