@@ -2,6 +2,8 @@ package com.toplaylist.to_play_list.exceptions;
 
 import java.util.ArrayList;
 
+import org.springframework.core.NestedExceptionUtils;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -47,5 +49,11 @@ public class ApiExceptionHandler {
     public ResponseEntity<Error> handle(IllegalArgumentException e) {
         Error Error = new Error(e.getMessage(), HttpStatus.BAD_REQUEST);    
         return new ResponseEntity<Error>(Error, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Error> handle(DataIntegrityViolationException e) {
+        Error Error = new Error(NestedExceptionUtils.getMostSpecificCause(e).getMessage(), HttpStatus.CONFLICT);
+        return new ResponseEntity<Error>(Error, HttpStatus.CONFLICT);
     }
 }
