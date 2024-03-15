@@ -3,6 +3,7 @@
 
 -> Have you ever had so many games in your steam library that you just can't seem to know which games you haven't played and which ones you have? Well, this api means to solve this problem, it provides a simple way to organize the games you have played and the games you haven't!
 
+-> This project takes inspiration on the https://www.backloggd.com/ website
 
 # Supported http methods
 
