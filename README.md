@@ -14,5 +14,5 @@
 
 - Autenticação básica com nome de usuário e senha
 - Separação de jogos, desenvolvedoras e distribuidoras por usuário
-- Cadastro de novos jogos, desenvolvedoras e distribuidoras
+- Cadastro de novos jogos (com seus respectivos status), desenvolvedoras e distribuidoras
 
