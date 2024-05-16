@@ -4,7 +4,11 @@
 
 # Motivo  da criação
 
-- Essa API foi criada com o propósito de servir como uma espécie de "agenda gamer", onde você pode marcar todos os jogos que você pretende jogar, colocar um status que diz se você já jogou, zerou ou completou 100% desse determinado jogo além de cadastrar a desenvolvedora e a distribuidora do jogo
+- Essa API foi criada com o propósito de servir como uma espécie de "agenda gamer" para pessoas que possuem muitos jogos comprados em lojas como Steam, GOG, PSN ou Microsoft Store, porém não tem tempo suficiente para jogar eles
+
+<br>
+
+- Nela você pode marcar todos os jogos que você pretende jogar, colocar um status que diz se você já jogou, zerou ou completou 100% desse determinado jogo, além de cadastrar a desenvolvedora e a distribuidora do jogo
 
 <br>
 
